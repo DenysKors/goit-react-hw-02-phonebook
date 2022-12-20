@@ -24,9 +24,11 @@ export class App extends Component {
   };
 
   addFormContacts = formData => {
+    const normalizedName = formData.name.toLowerCase();
     const findName = this.state.contacts.find(
-      contact => contact.name === formData.name
+      contact => contact.name.toLowerCase() === normalizedName
     );
+
     if (findName) {
       return alert(`${formData.name} is already in contacts`);
     }
